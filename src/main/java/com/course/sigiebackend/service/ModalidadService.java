@@ -2,6 +2,7 @@ package com.course.sigiebackend.service;
 
 import com.course.sigiebackend.entity.Curso;
 import com.course.sigiebackend.repository.CursoRepository;
+import com.course.sigiebackend.repository.ModalidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,17 +11,17 @@ import java.util.List;
 
 @Service
 @Transactional
-public class CursoService {
+public class ModalidadService {
 
     @Autowired
-    private CursoRepository repository;
+    private ModalidadRepository repository;
 
     // using ORM Hibernate
     public List<Curso> listAll() {
         return repository.findAll();
     }
 
-    public void save(Curso curso) { repository.save(curso); }
+    public void save(Curso student) { repository.save(student); }
 
     public Curso get(int id) {
         return repository.findById(id).get();

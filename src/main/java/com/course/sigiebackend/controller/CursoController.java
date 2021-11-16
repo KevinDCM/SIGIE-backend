@@ -54,12 +54,12 @@ public class CursoController {
 
             String name = jsonNode.get("Name").asText();
             String email = jsonNode.get("Email").asText();
-            String password = jsonNode.get("Password").asText();
+            int password = jsonNode.get("Password").asInt();
 
             Curso curso = new Curso();
-            curso.setName(name);
-            curso.setEmail(email);
-            curso.setPassword(password);
+            curso.setSigla(name);
+            curso.setNombre(email);
+            curso.setCreditos(password);
 
             service.save(curso);
 
@@ -70,7 +70,7 @@ public class CursoController {
 
     @PutMapping("/update")
     public @ResponseBody void update(@RequestBody Curso curso) {
-        Curso existingCurso = service.get(curso.getCursoId());
+        Curso existingCurso = service.get(curso.getIdCurso());
         service.save(curso);
     }
 
