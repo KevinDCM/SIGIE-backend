@@ -3,6 +3,7 @@ package com.course.sigiebackend.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.List;
 
 import java.util.List;
 
@@ -13,6 +14,14 @@ import java.util.List;
 
 public class Curso {
     @JsonProperty
+
+    @Column
+    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Contenido> contenidos;
+
+    @JsonProperty
+    private int StudentId;
+
     private int idCurso;
     @JsonProperty
     @Column
@@ -29,6 +38,7 @@ public class Curso {
     @JsonProperty
     @Column
     private boolean electivo;
+
     @JsonProperty
     @Column
     private int horasTeoria;
