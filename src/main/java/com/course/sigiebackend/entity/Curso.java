@@ -3,12 +3,18 @@ package com.course.sigiebackend.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Curso")
 
 
 public class Curso {
+    @JsonProperty
+    @Column
+    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Contenido> contenidos;
+
     @JsonProperty
     private int StudentId;
     @JsonProperty
