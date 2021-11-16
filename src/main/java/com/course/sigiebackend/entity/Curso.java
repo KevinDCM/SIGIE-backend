@@ -3,6 +3,7 @@ package com.course.sigiebackend.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "Curso")
@@ -20,6 +21,7 @@ public class Curso {
     @JsonProperty
     @Column
     private String Password;
+
 
     public Curso() {
     }
